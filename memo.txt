@@ -1,0 +1,22 @@
+FROM python:3.7
+
+RUN pip install flask
+RUN pip install dash==0.39.0
+RUN pip install dash-daq==0.1.0
+
+WORKDIR /app
+
+EXPOSE 5050
+
+
+version: '3'
+
+services:
+  web:
+    build: .
+    ports:
+      - 5050:5050
+    volumes:
+      - .:/app
+    tty: true
+    stdin_open: true

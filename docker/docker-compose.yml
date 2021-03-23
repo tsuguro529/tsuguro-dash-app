@@ -1,0 +1,13 @@
+version: '3'
+services:
+  dash-app:
+    restart: always
+    build: .
+    container_name: 'dash-app'
+    ports:
+      - "8050:8050"
+    working_dir: '/root/'
+    tty: true
+    volumes:
+      - .:/root/src/
+      - ~/.zshrc:/root/.zshrc
